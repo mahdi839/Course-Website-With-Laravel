@@ -41,12 +41,32 @@
                             </div>
                             <div class="form-group">
                                 <label for="comment">Description:</label>
-                                <textarea class="form-control rounded" rows="5" id="comment" name="description" >{{ old('description',$single_card->description) }}</textarea>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description_two" >{{ old('description_two',$single_card->description_two) }}</textarea>
+                                @error('description_two')
+                                <small class="text-danger">{{ $message }}</small>
+                             @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Description:</label>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description_three" >{{ old('description_three',$single_card->description_three) }}</textarea>
+                                @error('description_three')
+                                <small class="text-danger">{{ $message }}</small>
+                             @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Description:</label>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description_four" >{{ old('description_four',$single_card->description_four) }}</textarea>
+                                @error('description_four')
+                                <small class="text-danger">{{ $message }}</small>
+                             @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Description:</label>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description" >{{ old('description',$single_card->description) }}</textarea>
                                 @error('description')
                                 <small class="text-danger">{{ $message }}</small>
                              @enderror
                             </div>
-
                             <div class="form-group">
                                 <input type="file"
                                     placeholder="Upload Image" name="image">

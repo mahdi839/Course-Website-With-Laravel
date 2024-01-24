@@ -39,9 +39,30 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="comment">Description:</label>
-                                <textarea class="form-control rounded" rows="5" id="comment" name="description" >{{ old('description') }}</textarea>
+                                <label for="comment">** এই কোর্সে যা যা শিখতে পারবেন ইনশাআল্লাহ</label>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description" >{{ old('description') }}</textarea>
                                 @error('description')
+                                <small class="text-danger">{{ $message }}</small>
+                             @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">**কোর্সটির সংক্ষিপ্ত বিবরণী</label>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description_two" >{{ old('description_two') }}</textarea>
+                                @error('description_two')
+                                <small class="text-danger">{{ $message }}</small>
+                             @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">রেজিস্ট্রেশন ফি: রেজিস্ট্রেশন ফি প্রদানের মাধ্যম</label>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description_three" >{{ old('description_three') }}</textarea>
+                                @error('description_three')
+                                <small class="text-danger">{{ $message }}</small>
+                             @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">**কোর্স সম্পর্কে শেষ কথা </label>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description_four" >{{ old('description_four') }}</textarea>
+                                @error('description_four')
                                 <small class="text-danger">{{ $message }}</small>
                              @enderror
                             </div>
@@ -61,7 +82,7 @@
                         </form>
                         <hr>
 
-                       
+
 
 
                     </div>

@@ -15,6 +15,10 @@
      <link
          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
          rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap" rel="stylesheet">
 
      <!-- Custom styles for this template-->
      <link href="{{ asset('backend_assets') }}/css/sb-admin-2.min.css" rel="stylesheet">
@@ -40,7 +44,7 @@
              <li class="nav-item">
                <a class="nav-link active " aria-current="page" href="/">Home</a>
              </li>
-             <li class="nav-item" id='about'>
+             <li class="nav-item" >
 
              <a class="nav-link"  href="#about">About</a>
 
@@ -49,7 +53,10 @@
              <a class="nav-link" href="#course">Course</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="/">FAQ</a>
+            <a class="nav-link" href="#testimonial">Testimonial</a>
+          </li>
+           <li class="nav-item">
+               <a class="nav-link"  href="#faq">FAQ</a>
              </li>
            </ul>
 

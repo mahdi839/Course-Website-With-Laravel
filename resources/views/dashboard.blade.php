@@ -34,9 +34,13 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <!-- include summernote css/js -->         {{-- summer note --}}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{asset('backend_assets')}}/css/sb-admin-2.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -108,9 +112,43 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{asset('backend_assets')}}/#" data-toggle="collapse" data-target="#collapsePages1"
+                    aria-expanded="true" aria-controls="collapsePages">
+                   <i class="fa-solid fa-comment"></i>
+                    <span>Testimonials</span>
+                </a>
+                <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-transparent py-2 collapse-inner rounded">
+
+
+                        <a class="collapse-item text-light" href="{{ route('backend_testimonial.create')}}">Add Testimonial</a>
+                        <a class="collapse-item text-light" href="{{ route('backend_testimonial.index') }}">All Testimonials</a>
+
+
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{asset('backend_assets')}}/#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages">
+                   <i class="fa-solid fa-comment"></i>
+                    <span>FAQ</span>
+                </a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-transparent py-2 collapse-inner rounded">
+
+
+                        <a class="collapse-item text-light" href="{{ route('faq.create')}}">Add FAQ</a>
+
+
+
+                    </div>
+                </div>
+            </li>
             <li class="nav-item ">
                 <a class="nav-link " href="{{ route('home') }}" target="blank">
-                    <img src="{{ asset('assets') }}/photos/website.png" alt=""  width="20" class="ms-2">
+                    <i class="fa-solid fa-globe"></i>
                     <span >view website</span></a>
             </li>
 
@@ -408,6 +446,15 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('backend_assets')}}/js/demo/chart-area-demo.js"></script>
     <script src="{{asset('backend_assets')}}/js/demo/chart-pie-demo.js"></script>
+    {{-- summer note --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  $('.summernote').summernote();
+});
+  </script>
 
 </body>
 

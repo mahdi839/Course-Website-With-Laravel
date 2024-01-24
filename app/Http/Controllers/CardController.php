@@ -34,6 +34,9 @@ class CardController extends Controller
        $request->validate([
         'headline'=> 'required',
         'description'=> 'required',
+        'description_two'=> 'nullable',
+        'description_three'=> 'nullable',
+        'description_four'=> 'nullable',
         'image'=> 'required|image|mimes:jpeg,png,jpg,gif'
 
        ]);
@@ -47,6 +50,9 @@ class CardController extends Controller
              Card::insert([
                 'headline'=> $request->headline,
                 'description'=> $request->description,
+                'description_two'=> $request->description_two,
+                'description_three'=> $request->description_three,
+                'description_four'=> $request->description_four,
                 'image'=> $ImageName,
                 'created_at'=> Carbon::now()
 
@@ -81,6 +87,9 @@ class CardController extends Controller
         $request->validate([
             'headline'=> 'required',
             'description'=> 'required',
+            'description_two'=> 'nullable',
+            'description_three'=> 'nullable',
+            'description_four'=> 'nullable',
             'image'=> 'nullable|image|mimes:jpeg,png,jpg,gif'
 
            ]);
@@ -100,6 +109,9 @@ class CardController extends Controller
 
                     $updated_card->headline = $request->headline;
                     $updated_card->description = $request->description;
+                    $updated_card->description_two = $request->description_two;
+                    $updated_card->description_three = $request->description_three;
+                    $updated_card->description_four = $request->description_four;
                     $updated_card->save();
                    return back()->with('updated_card', 'Card Updated Successfully!');
     }

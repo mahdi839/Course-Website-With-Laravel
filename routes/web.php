@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FronendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [FronendController::class, 'showHome'])->name('home');
+Route::get('/card_details/{id}', [FronendController::class, 'card_details'])->name('card_details');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/backend_course', [BackendController::class, 'backend_course'])->name('backend.course');
     Route::post('/backend_course/create', [BackendController::class, 'backend_course_create'])->name('backend.course.create');
     Route::resource('backend_card', CardController::class);
+    Route::resource('backend_testimonial', TestimonialController::class);
+    Route::resource('faq', FaqController::class);
 });
 
 require __DIR__.'/auth.php';

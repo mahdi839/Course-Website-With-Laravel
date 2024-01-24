@@ -9,6 +9,9 @@
               <tr>
                 <th>Headline</th>
                 <th>Description</th>
+                <th>Description-two</th>
+                <th>Description-three</th>
+                <th>Description-four</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -17,17 +20,26 @@
 
                 @php
                   $single_des =  $card->description
+
                 @endphp
               <tr>
                 <td>{{ $card->headline }}</td>
-                <td> {{ Illuminate\Support\Str::limit($single_des,60) }}</td>
+                <td> @php
+                 echo Illuminate\Support\Str::limit($single_des,60)
+                @endphp  </td>
+
+
+
+                <td>  @php echo Illuminate\Support\Str::limit( $card->description_two,60) @endphp </td>
+                <td> @php echo Illuminate\Support\Str::limit( $card->description_three,60)  @endphp</td>
+                <td> @php  echo Illuminate\Support\Str::limit( $card->description_four,60) @endphp </td>
 
                 <td class="d-flex">
-                    <a href="{{ route('backend_card.edit', $card->id) }}" class="btn btn-primary m-3">Edit</a>
+                    <a href="{{ route('backend_card.edit', $card->id) }}" class="btn btn-primary m-3"><i class="fa-solid fa-pen-to-square"></i></a>
                     <form method="POST" action="{{ route('backend_card.destroy', $card->id) }}">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-danger m-3">Delete</button>
+                      <button type="submit" class="btn btn-danger m-3"><i class="fa-solid fa-trash"></i></button>
                     </form>
 
 

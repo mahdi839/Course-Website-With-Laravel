@@ -17,7 +17,7 @@
    {{-- weave header end --}}
 
    {{-- about us part start --}}
-   <section id='about '>
+   <section id='about'>
     <div class='container main-about' >
     <h1 class='text-center about-heading'>{{ $backend_about_info->headline }} </span> </h1>
     <div class="row">
@@ -51,7 +51,7 @@
             <div class="card-body">
               <h5 class="card-title card-heading">{{ $card->headline }}</h5>
               <p class="card-text"> {{ Illuminate\Support\Str::limit($singledes,68) }} </p>
-              <a href="#" class="btn " style="background: #B81398;color:white;" ‍>View Details</a>
+              <a href="{{ route('card_details',$card->id) }}" class="btn " style="background: #B81398;color:white;" ‍>View Details</a>
             </div>
           </div>
           @endforeach
@@ -67,26 +67,33 @@
     <div class="container mt-5">
         <div class="row">
             <div class="testimonial-header text-center">
-                <h4 class=" mb-1" style="color:#B81398;">Our Testimonial</h4>
-                <h1 class="display-5 mb-5  mt-3 " style="color:#B81398;"> শিক্ষার্থীরা যা বলেছে</h1>
+                <h4 class=" mb-1" style="color:black; font-family:Poppins;">Our Testimonial</h4>
+                <h1 class="display-5 mb-5  mt-3 " style="color:#B81398; font-family: 'Tiro Bangla', serif; "> শিক্ষার্থীরা যা বলেছে</h1>
             </div>
             <div class="owl-carousel testimonial-carousel">
-
-            <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                @foreach ($single_testimonial as $testimonial)
+            <div class="testimonial-item img-border-radius bg-light rounded p-4" style="min-height:25rem;">
                 <div class="position-relative">
                     <i class="fa fa-quote-right fa-2x  position-absolute" style="bottom: 30px; right: 0;color:#B81398"></i>
-                    <div class="mb-4 pb-4 testimonial-border-bottom "></>
-                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        </p>
+                    <div class="mb-4 pb-4 testimonial-border-bottom ">
+
+
+
+                        <p class="mb-0 mt-3"> {{ Illuminate\Support\Str::limit($testimonial->comment,120) }} </p>
                         <hr style="color: #B81398">
                     </div>
                     <div class="d-flex align-items-center ">
                         <div class=" rounded">
+
+                            @if ($testimonial->gender == 1 )
                             <img src="{{ asset('assets') }}/photos/ladis_avater.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                            @elseif ($testimonial->gender == 0)
+                            <img src="{{ asset('assets') }}/photos/man.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                            @endif
                         </div>
                         <div class="ms-4 d-block">
-                            <h4 class="" style="color:black;font-weight:normal; font-family:Poppins;">Client Name</h4>
-                            <p class="m-0 pb-3">Profession</p>
+                            <h4 class="" style="color:black;font-weight:normal; font-family:Poppins;">{{ $testimonial->name }}</h4>
+                            <p class="m-0 pb-3">{{ $testimonial->profession }}</p>
                             <div class="d-flex pe-5">
                                 <i class="fas fa-star " style="color:#B81398"></i>
                                 <i class="fas fa-star " style="color:#B81398"></></i>
@@ -102,7 +109,7 @@
 
             </div>
         </div>
-
+        @endforeach
 
         </div>
     </div>
@@ -112,5 +119,40 @@
 
 
 {{-- testimonial end --}}
+
+{{-- FAQ section start --}}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <section id="faq">
+                <h1 class="text-center mt-5 mb-4" style="color: #B81398">আপনার প্রশ্ন ও উত্তর</h1>
+
+
+
+                <div class="accordion" id="accordionExample">
+                    @forelse ($all_faqs as $faq)
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"  data-bs-target="#collapseOne{{ $faq->id }}" aria-expanded="true" aria-controls="collapseOne">
+                        {{ $faq->question }}                       </button>
+                      </h2>
+                      <div id="collapseOne{{ $faq->id }}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          {{ $faq->answer }}
+                        </div>
+                      </div>
+
+                    </div>
+                    @empty
+                    <h1 class="text-danger"> nothing to show</h1>
+                 @endforelse
+                  </div>
+
+            </section>
+        </div>
+    </div>
+</div>
+{{-- FAQ section start --}}
  @endsection
 
