@@ -13,7 +13,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $all_faqs = Faq::all();
+        return view('faq.index',compact('all_faqs'));
     }
 
     /**
@@ -63,7 +64,7 @@ class FaqController extends Controller
      */
     public function update(Request $request, Faq $faq)
     {
-        //
+
     }
 
     /**
@@ -71,6 +72,7 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        //
+         $faq->delete();
+          return back();
     }
 }

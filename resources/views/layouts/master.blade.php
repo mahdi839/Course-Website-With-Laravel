@@ -19,7 +19,7 @@
    {{-- about us part start --}}
    <section id='about'>
     <div class='container main-about' >
-    <h1 class='text-center about-heading'>{{ $backend_about_info->headline }} </span> </h1>
+    {{-- <h1 class='text-center about-heading'>{{ $backend_about_info->headline }} </span> </h1> --}}
     <div class="row">
 
     <div class="col-lg-6  pt-3 pb-5  about-img">
@@ -27,7 +27,7 @@
     </div>
     <div class="col-lg-6  about-info">
 
-       <p>{{ $backend_about_info->description }} </p>
+       {{-- <p>{{ $backend_about_info->description }} </p> --}}
     </div>
     </div>
     </div>
@@ -42,15 +42,15 @@
     <div class="owl-carousel owl-theme">
       @foreach ( $all_cards as $card )
 
-   @php
-        $singledes = $card->description
-   @endphp
+
         <div class="card  " >
 
             <img src="/cards/{{$card->image }}"  class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title card-heading">{{ $card->headline }}</h5>
-              <p class="card-text"> {{ Illuminate\Support\Str::limit($singledes,68) }} </p>
+              <p class="card-text">
+               {{ Illuminate\Support\Str::limit($card->description,68) }}
+               </p>
               <a href="{{ route('card_details',$card->id) }}" class="btn " style="background: #B81398;color:white;" ‍>View Details</a>
             </div>
           </div>
@@ -121,32 +121,32 @@
 {{-- testimonial end --}}
 
 {{-- FAQ section start --}}
-<div class="container">
+<div class="container mt-5 ">
     <div class="row">
         <div class="col-12">
-            <section id="faq">
+            <section id="faq" class="pb-5">
                 <h1 class="text-center mt-5 mb-4" style="color: #B81398">আপনার প্রশ্ন ও উত্তর</h1>
 
 
 
                 <div class="accordion" id="accordionExample">
-                    @forelse ($all_faqs as $faq)
+                    @foreach ($all_faqs as $faq)
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="headingOne">
 
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"  data-bs-target="#collapseOne{{ $faq->id }}" aria-expanded="true" aria-controls="collapseOne">
+                        <button class=" accordion-button collapsed" type="button" data-bs-toggle="collapse"  data-bs-target="#collapseOne{{ $faq->id }}" aria-expanded="true" aria-controls="collapseOne">
                         {{ $faq->question }}                       </button>
                       </h2>
-                      <div id="collapseOne{{ $faq->id }}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div id="collapseOne{{ $faq->id }}" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                           {{ $faq->answer }}
                         </div>
                       </div>
 
                     </div>
-                    @empty
-                    <h1 class="text-danger"> nothing to show</h1>
-                 @endforelse
+
+
+                 @endforeach
                   </div>
 
             </section>

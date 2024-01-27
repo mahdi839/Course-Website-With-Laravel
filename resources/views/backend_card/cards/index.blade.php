@@ -9,9 +9,7 @@
               <tr>
                 <th>Headline</th>
                 <th>Description</th>
-                <th>Description-two</th>
-                <th>Description-three</th>
-                <th>Description-four</th>
+            
                 <th>Actions</th>
               </tr>
             </thead>
@@ -30,9 +28,7 @@
 
 
 
-                <td>  @php echo Illuminate\Support\Str::limit( $card->description_two,60) @endphp </td>
-                <td> @php echo Illuminate\Support\Str::limit( $card->description_three,60)  @endphp</td>
-                <td> @php  echo Illuminate\Support\Str::limit( $card->description_four,60) @endphp </td>
+
 
                 <td class="d-flex">
                     <a href="{{ route('backend_card.edit', $card->id) }}" class="btn btn-primary m-3"><i class="fa-solid fa-pen-to-square"></i></a>

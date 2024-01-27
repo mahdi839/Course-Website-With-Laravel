@@ -140,6 +140,7 @@
 
 
                         <a class="collapse-item text-light" href="{{ route('faq.create')}}">Add FAQ</a>
+                        <a class="collapse-item text-light" href="{{ route('faq.index')}}">All FAQ</a>
 
 
 
@@ -347,6 +348,8 @@
                             <a class="nav-link dropdown-toggle" href="{{asset('backend_assets')}}/#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
+
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">-{{ auth()->user()->role }}-</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{asset('backend_assets')}}/img/undraw_profile.svg">
                             </a>
