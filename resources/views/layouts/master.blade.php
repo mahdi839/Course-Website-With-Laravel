@@ -19,7 +19,7 @@
    {{-- about us part start --}}
    <section id='about'>
     <div class='container main-about' >
-    {{-- <h1 class='text-center about-heading'>{{ $backend_about_info->headline }} </span> </h1> --}}
+    <h1 class='text-center about-heading'>{{ $backend_about_info->headline }} </span> </h1>
     <div class="row">
 
     <div class="col-lg-6  pt-3 pb-5  about-img">
@@ -27,7 +27,7 @@
     </div>
     <div class="col-lg-6  about-info">
 
-       {{-- <p>{{ $backend_about_info->description }} </p> --}}
+       <p>{{ $backend_about_info->description }} </p>
     </div>
     </div>
     </div>

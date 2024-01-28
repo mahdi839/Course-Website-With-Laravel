@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FronendController;
 use App\Http\Controllers\ProfileController;
@@ -28,7 +29,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('admin.checker')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -41,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('backend_card', CardController::class);
     Route::resource('backend_testimonial', TestimonialController::class);
     Route::resource('faq', FaqController::class);
+    Route::resource('enroll', EnrollmentController::class);
+    Route::get('/registration_enroll', [EnrollmentController::class, 'registration_enroll'])->name('registration_enroll');
 });
 
 require __DIR__.'/auth.php';

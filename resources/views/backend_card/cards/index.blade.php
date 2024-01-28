@@ -9,7 +9,7 @@
               <tr>
                 <th>Headline</th>
                 <th>Description</th>
-            
+
                 <th>Actions</th>
               </tr>
             </thead>
@@ -22,9 +22,9 @@
                 @endphp
               <tr>
                 <td>{{ $card->headline }}</td>
-                <td> @php
-                 echo Illuminate\Support\Str::limit($single_des,60)
-                @endphp  </td>
+                <td>
+                 {{ Illuminate\Support\Str::limit($single_des,60) }}
+                 </td>
 
 
 
