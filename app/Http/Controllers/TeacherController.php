@@ -12,7 +12,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers =Teacher::all();
+        return view('teacher_backend.index',compact('teachers'));
     }
 
     /**
@@ -20,7 +21,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teacher_backend.create');
     }
 
     /**
@@ -28,7 +29,16 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'profession'=>'required',
+        ]);
+
+           Teacher::insert([
+            'name'=>$request->name,
+            'profession'=>$request->profession
+           ]);
+           return back()->with('success', 'successfully Added!');
     }
 
     /**
@@ -58,8 +68,10 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Teacher $teacher)
+    public function destroy(Teacher $teacher ,$id )
     {
-        //
+        $single_teacher = Teacher::where('id',$id)->first();
+          $single_teacher->delete();
+          return back()->with('success_delete','successfully deleted!');
     }
 }

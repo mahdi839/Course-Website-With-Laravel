@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Card;
 use App\Models\Faq;
+use App\Models\Teacher;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -40,8 +41,8 @@ class FronendController extends Controller
 
 public function all_teachers (){
 
-
-        return view('Full_pages.teachers');
+        $teachers = Teacher::all();
+        return view('Full_pages.teachers',compact('teachers'));
      }
 
 

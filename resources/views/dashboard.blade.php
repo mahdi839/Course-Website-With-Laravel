@@ -150,6 +150,24 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{asset('backend_assets')}}/#" data-toggle="collapse" data-target="#collapsePages3"
                     aria-expanded="true" aria-controls="collapsePages">
+                   <i class="fa-solid fa-comment"></i>
+                    <span>Our-Teacher</span>
+                </a>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-transparent py-2 collapse-inner rounded">
+
+
+                        <a class="collapse-item text-light" href="{{ route('teacher_backend.create')}}">Add Teacher</a>
+                        <a class="collapse-item text-light" href="{{ route('teacher_backend.index')}}">All Teacher</a>
+
+
+
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{asset('backend_assets')}}/#" data-toggle="collapse" data-target="#collapsePages3"
+                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fa-solid fa-tablet-button"></i>
                     <span>Applied Students</span>
                 </a>

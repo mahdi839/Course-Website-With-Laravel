@@ -6,6 +6,7 @@ use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FronendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,9 @@ Route::get('/all_faq', [FronendController::class, 'all_faq'])->name('all_faq');
 Route::get('/all_teachers', [FronendController::class, 'all_teachers'])->name('all_teachers');
 
 
+
 Route::resource('enroll', EnrollmentController::class);
+Route::resource('teacher_backend', TeacherController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
