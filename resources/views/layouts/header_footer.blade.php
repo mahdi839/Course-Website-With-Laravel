@@ -44,28 +44,27 @@
              <li class="nav-item">
                <a class="nav-link active " aria-current="page" href="/">Home</a>
              </li>
-             <li class="nav-item" >
 
-             <a class="nav-link"  href="#about">About</a>
-
-             </li>
              <li class="nav-item">
-             <a class="nav-link" href="#course">Course</a>
+             <a class="nav-link" href="{{ route('all_card') }}">Course</a>
            </li>
            <li class="nav-item">
-            <a class="nav-link" href="#testimonial">Testimonial</a>
+            <a class="nav-link" href="{{ route('all_testimonial') }}">Testimonial</a>
           </li>
            <li class="nav-item">
-               <a class="nav-link"  href="#faq">FAQ</a>
+               <a class="nav-link"  href="{{ route('all_faq') }}">FAQ</a>
              </li>
+             <li class="nav-item">
+                <a class="nav-link"  href="{{ route('all_teachers') }}">Our-Teachers</a>
+              </li>
            </ul>
 
 
 
-           <a class="btn  btn-md mr-5  text-light "
-           href="{{ route('registration_enroll') }}" role="button" style="background: #B81398;font-family:Poppins;"> Enroll Now </a>
+          <div class="enb"> <a class="btn  btn-md mr-5   text-light "
+            href="{{ route('registration_enroll') }}" role="button" style="background: #B81398;font-family:Poppins;"> Enroll Now </a></div>
 
-           <div class="dropdown me-5 register-dropdown ">
+           <div class="dropdown me-5 mt-sm-2 register-dropdown ">
             <a class="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
 
                 <i class="fa-solid fa-user"></i>
@@ -77,8 +76,7 @@
                 <li><a class="dropdown-item" href="{{ route('dashboard') }}">Go To Dashboard</a></li>
                 @endauth
                 @guest
-                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
-                <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+                <li><a class="dropdown-item" href="{{ route('login') }}">Admin Login</a></li>
                 @endguest
 
 

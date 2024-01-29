@@ -99,6 +99,11 @@
     height: 38rem;
     background: #FFFAF3;
   }
+  @media only screen and (max-width: 600px) {
+    .enb {
+      margin-bottom: 1rem;
+    }
+  }
   /* weave header part start */
   .wave-header{
     position: relative;
@@ -313,6 +318,12 @@
 .testimonial-border-bottom{
     border-bottom: var(--primary_color);
 }
+@media only screen and (max-width: 600px) {
+    .all_testi {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
 /*** testimonial End ***/
 /* footer start */
 .footer-main{
@@ -324,7 +335,7 @@
 
 .footer{
    color: white;
-   
+
 }
 .footer-img-div{
     display: flex;

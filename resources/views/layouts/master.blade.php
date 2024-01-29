@@ -49,13 +49,14 @@
             <div class="card-body">
               <h5 class="card-title card-heading">{{ $card->headline }}</h5>
               <p class="card-text">
-               {{ Illuminate\Support\Str::limit($card->description,68) }}
+                {!! \Illuminate\Support\Str::limit(strip_tags($card->description), 68) !!}
                </p>
               <a href="{{ route('card_details',$card->id) }}" class="btn " style="background: #B81398;color:white;" ‍>View Details</a>
             </div>
           </div>
           @endforeach
         </div>
+        <a class="btn" href="{{ route('all_card') }}" style="background: #B81398;color:white;">View All Courses</a>
     </div>
    </div>
    </section>
@@ -112,7 +113,9 @@
         @endforeach
 
         </div>
+
     </div>
+    <a href="{{ route('all_testimonial') }}" class="btn justifiy-content-right" style="background: #B81398;color:#fff"> View All Testimonial &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
 </section>
 
 
@@ -130,12 +133,12 @@
 
 
                 <div class="accordion" id="accordionExample">
-                    @foreach ($all_faqs as $faq)
+                    @foreach ($all_faqs->take(5) as $faq)
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="headingOne">
 
                         <button class=" accordion-button collapsed" type="button" data-bs-toggle="collapse"  data-bs-target="#collapseOne{{ $faq->id }}" aria-expanded="true" aria-controls="collapseOne">
-                        {{ $faq->question }}                       </button>
+                       <span style="color: #2307f0 ; font-weight:600; font-family:Poppins;"> {{ $faq->question }}   </span>                      </button>
                       </h2>
                       <div id="collapseOne{{ $faq->id }}" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
@@ -148,7 +151,7 @@
 
                  @endforeach
                   </div>
-
+                  <a href="{{ route('all_faq') }}" class="btn justifiy-content-right mt-4" style="background: #B81398;color:#fff"> View All &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
             </section>
         </div>
     </div>

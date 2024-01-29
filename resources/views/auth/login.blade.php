@@ -50,7 +50,7 @@
                         <div class="p-5">
                             <div class="text-center">
 
-                                <h1 class="h4  mb-4" style="color:black">Welcome Back! <span style="color: #B81398 ">Log In</span> </h1>
+                                <h1 class="h4  mb-4" style="color:black"> Admin <span style="color: #B81398 ">Log In</span> </h1>
                             </div>
                             <form class="user" method="POST" action="{{ route('login') }}">
                                 @csrf

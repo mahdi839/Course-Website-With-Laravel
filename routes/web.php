@@ -23,13 +23,21 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [FronendController::class, 'showHome'])->name('home');
+Route::get('/registration_enroll', [EnrollmentController::class, 'registration_enroll'])->name('registration_enroll');
 Route::get('/card_details/{id}', [FronendController::class, 'card_details'])->name('card_details');
+Route::get('/all_card', [FronendController::class, 'all_card'])->name('all_card');
+Route::get('/all_testimonial', [FronendController::class, 'all_testimonial'])->name('all_testimonial');
+Route::get('/all_faq', [FronendController::class, 'all_faq'])->name('all_faq');
+Route::get('/all_teachers', [FronendController::class, 'all_teachers'])->name('all_teachers');
+
+
+Route::resource('enroll', EnrollmentController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('admin.checker')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -42,8 +50,8 @@ Route::middleware('admin.checker')->group(function () {
     Route::resource('backend_card', CardController::class);
     Route::resource('backend_testimonial', TestimonialController::class);
     Route::resource('faq', FaqController::class);
-    Route::resource('enroll', EnrollmentController::class);
-    Route::get('/registration_enroll', [EnrollmentController::class, 'registration_enroll'])->name('registration_enroll');
+
+
 });
 
 require __DIR__.'/auth.php';

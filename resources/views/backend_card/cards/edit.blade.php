@@ -41,12 +41,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="comment">Description:</label>
-                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description_two" >{{ old('description_two',$single_card->description_two) }}</textarea>
+                                <textarea class="form-control rounded summernote" rows="5" id="comment" name="description" >{{ old('description',$single_card->description) }}</textarea>
                                 @error('description_two')
                                 <small class="text-danger">{{ $message }}</small>
                              @enderror
                             </div>
-                          
+
                             <div class="form-group">
                                 <input type="file"
                                     placeholder="Upload Image" name="image">
